@@ -434,7 +434,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023917912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 1.49, z: 5.7185764}
+  m_LocalPosition: {x: 12.3, y: 1.49, z: 5.7185764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329376411}
@@ -657,9 +657,10 @@ GameObject:
   - component: {fileID: 1261381003}
   - component: {fileID: 1261381006}
   - component: {fileID: 1261381007}
+  - component: {fileID: 1261381008}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -794,6 +795,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1261381008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261381002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b59cb03bdd89447bddf5469f6e2a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1261381002}
+  health: 100
+  maxHealth: 100
+  minDamage: 0
+  maxDamage: 20
 --- !u!1 &1329376410
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632237453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5, y: 1.06, z: 5.7185764}
+  m_LocalPosition: {x: -9.82, y: 1.06, z: 5.7185764}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1329376411}
@@ -1019,9 +1037,10 @@ GameObject:
   - component: {fileID: 2032815858}
   - component: {fileID: 2032815860}
   - component: {fileID: 2032815861}
+  - component: {fileID: 2032815862}
   m_Layer: 0
   m_Name: Player1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1151,6 +1170,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2032815862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2032815856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b59cb03bdd89447bddf5469f6e2a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2032815856}
+  health: 100
+  maxHealth: 100
+  minDamage: 0
+  maxDamage: 20
 --- !u!1001 &242532337792883691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1162,6 +1198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 242532336902585953, guid: 81982c914bbcbe946b4ede31c211e335,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 242532336902585958, guid: 81982c914bbcbe946b4ede31c211e335,
         type: 3}
