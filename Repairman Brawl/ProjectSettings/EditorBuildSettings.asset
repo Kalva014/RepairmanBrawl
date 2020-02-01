@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: cdd1800af069f487fa3d27d5d4974c01
   - enabled: 1
+    path: Assets/Scenes/Repairman.unity
+    guid: 5300fde6244ca45cba0230b8cb0e6750
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
