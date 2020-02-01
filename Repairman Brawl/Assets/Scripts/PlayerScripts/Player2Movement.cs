@@ -28,12 +28,18 @@ public class Player2Movement : MonoBehaviour
 
         if (direction.x != 0 || direction.y != 0)
         {
-            SetAnimatorMovement(direction);
+            if (animator != null)
+            {
+                SetAnimatorMovement(direction);
+            }
 
         }
         else
         {
-            animator.SetLayerWeight(1, 0);
+            if (animator != null)
+            {
+                animator.SetLayerWeight(1, 0);
+            }
         }
     }
 
