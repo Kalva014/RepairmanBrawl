@@ -45,9 +45,22 @@ public class PlayerSheet : MonoBehaviour
                 case PlayerMovement.facing.right:
                     direction = new Vector3(1.0f, 0.0f, 0.0f);
                     break;
+                case PlayerMovement.facing.upright:
+                    direction = new Vector3(1.0f, 1.0f, 0.0f);
+                    break;
+                case PlayerMovement.facing.upleft:
+                    direction = new Vector3(-1.0f, 1.0f, 0.0f);
+                    break;
+                case PlayerMovement.facing.downright:
+                    direction = new Vector3(1.0f, -1.0f, 0.0f);
+                    break;
+                case PlayerMovement.facing.downleft:
+                    direction = new Vector3(-1.0f, -1.0f, 0.0f);
+                    break;
             }
+            direction = direction.normalized;
 
-            GameObject spell = Instantiate(projectile, transform.position + (direction * (1.2f)) , Quaternion.identity);
+            GameObject spell = Instantiate(projectile, transform.position + (direction * (1.1f)) , Quaternion.identity);
 
             //direction = direction.normalized;
 
