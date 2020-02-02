@@ -28,7 +28,7 @@ public class PlayerSheet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Q was pressed.");
-            GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
+            //GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
            // Vector3 direction;
             switch (player.GetComponent<PlayerMovement>().lookDirection)
             {
@@ -46,8 +46,10 @@ public class PlayerSheet : MonoBehaviour
                     break;
             }
 
+            GameObject spell = Instantiate(projectile, transform.position + (direction * (1.2f)) , Quaternion.identity);
+
             //direction = direction.normalized;
-         
+
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
 
 
@@ -58,20 +60,28 @@ public class PlayerSheet : MonoBehaviour
 
 
     // Update is called once per frame
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision Detected!");
-        if (collision.otherCollider.tag == "Player")
+   
+        public void OnCollisionEnter2D(Collision2D collision)
         {
-            collision.otherCollider.GetComponent<PlayerSheet>().takeDamage(Random.Range(minDamage, maxDamage));
+            //Debug.Log("Collision Detected!");
+            if (collision.otherCollider.tag == "Player")
+            {
+                if (collision.otherCollider.name == "Player1")
+                {
+                    collision.otherCollider.GetComponent<PlayerSheet>().takeDamage(Random.Range(minDamage, maxDamage));
+                }
+                else if (collision.otherCollider.name == "Player2")
+                {
+                    collision.otherCollider.GetComponent<PlayerSheet2>().takeDamage(Random.Range(minDamage, maxDamage));
+                }
+            }
         }
-    }
 
 
 
 
 
-    void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         health = health - Random.Range(minDamage, maxDamage);
         if (health <= 0)
