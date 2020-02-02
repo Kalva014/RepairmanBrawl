@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerSheet : MonoBehaviour
+public class PlayerSheet2 : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -25,29 +25,29 @@ public class PlayerSheet : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
             Debug.Log("Q was pressed.");
             GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
-           // Vector3 direction;
-            switch (player.GetComponent<PlayerMovement>().lookDirection)
+            // Vector3 direction;
+            switch (player.GetComponent<Player2Movement>().lookDirection)
             {
-                case PlayerMovement.facing.up:
+                case Player2Movement.facing.up:
                     direction = new Vector3(0.0f, 1.0f, 0.0f);
                     break;
-                case PlayerMovement.facing.down:
+                case Player2Movement.facing.down:
                     direction = new Vector3(0.0f, -1.0f, 0.0f);
                     break;
-                case PlayerMovement.facing.left:
+                case Player2Movement.facing.left:
                     direction = new Vector3(-1.0f, 0.0f, 0.0f);
                     break;
-                case PlayerMovement.facing.right:
+                case Player2Movement.facing.right:
                     direction = new Vector3(1.0f, 0.0f, 0.0f);
                     break;
             }
 
             direction = direction.normalized;
-         
+
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
 
 
@@ -63,7 +63,7 @@ public class PlayerSheet : MonoBehaviour
         Debug.Log("Collision Detected!");
         if (collision.otherCollider.tag == "Player")
         {
-            collision.otherCollider.GetComponent<PlayerSheet>().takeDamage(Random.Range(minDamage, maxDamage));
+            collision.otherCollider.GetComponent<PlayerSheet2>().takeDamage(Random.Range(minDamage, maxDamage));
         }
     }
 
