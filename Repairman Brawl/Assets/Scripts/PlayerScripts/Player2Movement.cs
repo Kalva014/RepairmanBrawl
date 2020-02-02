@@ -9,8 +9,8 @@ public class Player2Movement : MonoBehaviour
     public float speed;
     private Vector2 direction;
     private Animator animator;
-    private enum facing { up, down, left, right };
-    private facing lookDirection = facing.down;
+    public enum facing { up, down, left, right };
+    public facing lookDirection = facing.down;
     void Start()
     {
         animator = GetComponent<Animator>();
