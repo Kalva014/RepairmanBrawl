@@ -9,15 +9,32 @@ public class endgame : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
 
+
+
     private void Update()
     {
-        if(!player1 || !player2)
+        if (!player1 || !player2)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            StartCoroutine(end());
         }
     }
 
 
+    
+
+
+
+    IEnumerator end()
+    {
+        if(!player1 || !player2)
+        {
+            //DeathSound.playSound();
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+    
 
 
 

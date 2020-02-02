@@ -28,6 +28,7 @@ public class PlayerSheet2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Comma))
         {
+            WrenchNoise.playSound();
             //Debug.Log("Q was pressed.");
             //GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
             // Vector3 direction;
@@ -98,6 +99,7 @@ public class PlayerSheet2 : MonoBehaviour
         health = health - Random.Range(minDamage, maxDamage);
         if (health <= 0)
         {
+            DeathNoise.playSound();
             //healthBar.GetComponent<FillHealthBar2>().slider.value = 0;
             Destroy(player);
         }
