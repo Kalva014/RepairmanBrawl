@@ -45,10 +45,22 @@ public class PlayerSheet2 : MonoBehaviour
                 case Player2Movement.facing.right:
                     direction = new Vector3(1.0f, 0.0f, 0.0f);
                     break;
+                case Player2Movement.facing.upright:
+                    direction = new Vector3(1.0f, 1.0f, 0.0f);
+                    break;
+                case Player2Movement.facing.upleft:
+                    direction = new Vector3(-1.0f, 1.0f, 0.0f);
+                    break;
+                case Player2Movement.facing.downright:
+                    direction = new Vector3(1.0f, -1.0f, 0.0f);
+                    break;
+                case Player2Movement.facing.downleft:
+                    direction = new Vector3(-1.0f, -1.0f, 0.0f);
+                    break;
             }
 
-            //direction = direction.normalized;
-            GameObject spell = Instantiate(projectile, transform.position + (direction * (1.2f)), Quaternion.identity);
+            direction = direction.normalized;
+            GameObject spell = Instantiate(projectile, transform.position + (direction * (1.1f)), Quaternion.identity);
 
 
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;

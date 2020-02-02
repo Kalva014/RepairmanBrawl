@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     private Vector2 direction;
     private Animator animator;
-    public enum facing { up, down, left, right };
+    public enum facing { up, down, left, right, upright, upleft, downleft, downright };
     public facing lookDirection = facing.down;
     void Start()
     {
@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Move()
     {
+        direction = direction.normalized;
         transform.Translate(direction * speed * Time.deltaTime);
 
         if(direction.x != 0 || direction.y != 0)
@@ -53,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
             lookDirection = facing.up;
         }
 
-        if (Input.GetKey(KeyCode.A))
+         if (Input.GetKey(KeyCode.A))
         {
             direction += Vector2.left;
             lookDirection = facing.left;
@@ -61,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.S))
+         if (Input.GetKey(KeyCode.S))
         {
             direction += Vector2.down;
             lookDirection = facing.down;
@@ -72,10 +73,32 @@ public class PlayerMovement : MonoBehaviour
         {
             direction += Vector2.right;
             lookDirection = facing.right;
-
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            direction = new Vector2(-1.0f, 1.0f);
+            lookDirection = facing.upleft;
+
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            direction = new Vector2(1.0f, 1.0f);
+            lookDirection = facing.upright;
+        }
+         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+        {
+            direction = new Vector2(-1.0f, -1.0f);
+            lookDirection = facing.downleft;
+
+        }
+         if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        {
+            direction = new Vector2(1.0f, -1.0f);
+            lookDirection = facing.downright;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 currPos = transform.position;
             targetPos = Vector2.zero;
