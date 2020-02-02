@@ -7,7 +7,9 @@ public class FillHealthBar2 : MonoBehaviour
 {
     public GameObject player;
     public Image fillImage;
+
     public Slider slider;
+
     float playerHealth;
     float playerMaxHealth;
     float fillValue;
@@ -22,6 +24,7 @@ public class FillHealthBar2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (player)
         {
             playerHealth = player.GetComponent<PlayerSheet2>().health;

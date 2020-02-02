@@ -26,7 +26,7 @@ public class PlayerSheet2 : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.Comma))
         {
             //Debug.Log("Q was pressed.");
             //GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
