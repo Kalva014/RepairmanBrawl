@@ -7,7 +7,9 @@ public class FillHealthBar2 : MonoBehaviour
 {
     public GameObject player;
     public Image fillImage;
-    private Slider slider;
+
+    public Slider slider;
+
     float playerHealth;
     float playerMaxHealth;
     float fillValue;
@@ -22,14 +24,19 @@ public class FillHealthBar2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerHealth = player.GetComponent<PlayerSheet2>().health;
-        playerMaxHealth = player.GetComponent<PlayerSheet2>().maxHealth;
-        fillValue = playerHealth / playerMaxHealth;
 
-        if(playerHealth <= 0) {
-            fillValue = 0;
+        if (player)
+        {
+            playerHealth = player.GetComponent<PlayerSheet2>().health;
+            playerMaxHealth = player.GetComponent<PlayerSheet2>().maxHealth;
+            fillValue = playerHealth / playerMaxHealth;
+            slider.value = fillValue;
         }
+        else
+        {
 
-        slider.value = fillValue;
+
+            slider.value = 0;
+        }
     }
 }
