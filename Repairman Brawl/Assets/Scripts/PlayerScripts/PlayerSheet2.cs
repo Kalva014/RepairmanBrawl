@@ -27,7 +27,7 @@ public class PlayerSheet2 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
-            Debug.Log("Q was pressed.");
+            //Debug.Log("Q was pressed.");
             GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
             // Vector3 direction;
             switch (player.GetComponent<Player2Movement>().lookDirection)

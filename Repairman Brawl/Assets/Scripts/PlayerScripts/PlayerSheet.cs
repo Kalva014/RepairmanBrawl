@@ -25,7 +25,7 @@ public class PlayerSheet : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Q was pressed.");
             GameObject spell = Instantiate(projectile, transform.position, Quaternion.identity);
@@ -46,7 +46,7 @@ public class PlayerSheet : MonoBehaviour
                     break;
             }
 
-            direction = direction.normalized;
+            //direction = direction.normalized;
          
             spell.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
 
