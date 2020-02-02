@@ -9,6 +9,7 @@ public class PlayerSheet : MonoBehaviour
 
     public GameObject player;
     public GameObject projectile;
+    public GameObject healthBar;
 
     Vector3 direction;
 
@@ -86,6 +87,7 @@ public class PlayerSheet : MonoBehaviour
         health = health - Random.Range(minDamage, maxDamage);
         if (health <= 0)
         {
+            //healthBar.GetComponent<FillHealthBar>().slider.value = 0;
             Destroy(player);
         }
     }
